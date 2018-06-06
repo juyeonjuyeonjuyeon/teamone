@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" /><script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+
+        <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+
+        <meta property="og:title" content="DCU MAP">
+
+        <meta property="og:url" content="http:// 203.250.33.33/dcumap/index.html">
+
+        <meta property="og:description" content="대구가톨릭대학교 지도입니다.">
+
+        
+
+        <style>
+
+            body{
+
+                padding:0;
+
+                margin:0;
+
+                background-color:lightgray;
+
+            }
+
+            #page{
+
+                width:100%;
+
+                }
+
+           
+
+            #main{
+
+               position: relative;
+
+               
+
+            }
+
+            #main div{
+
+                float: left;
+
+            }
+
+            .menu{
+
+                clear : both;
+
+                overflow: scroll;
+
+                width : 220px;
+
+                height: 500px;
+
+                }
+
+            .menu div{
+
+                width : 200px;
+
+                margin: 0;
+
+            }
+
+            .buildings {
+
+                 width : 200px;
+
+                padding: 0;
+
+            }
+
+            .buildings div{
+
+                margin: 0;
+
+                text-align: left;
+
+            }
+
+            .buildings img{ 
+
+                width: 180px;
+
+               
+
+            }
+
+            #map{
+
+                position: absolute;
+
+                left:230px;
+
+                width:800px;                
+
+            }
+
+            #mapImg{
+
+                width : 100%;
+
+            }
+
+            
+
+            
+
+            #footer{
+
+                position: absolute;
+
+                top:800px;
+
+               
+
+                width:100%;
+
+                height:80px;
+
+                
+
+                background: black;
+
+                color:white;
+
+                
+
+                padding: 50px 0px; 
+
+                font-size : 12px;
+
+                text-align: center;
+
+                font-style: normal;
+
+                text-shadow: none;
+
+                
+
+            }
+
+            #footer{
+
+                overflow: hidden;
+
+            }
+
+            #footer ul{
+
+                margin-left: 30%;
+
+                width : 600px;
+
+            }
+
+            #footer ul li{ 
+
+                float: left;
+
+                list-style-type: none;
+
+                margin: auto;
+
+                padding: 20px;
+
+            }
+
+            .logo{
+
+                width : 20px;
+
+                height: 20px;
+
+            }
+
+            
+
+            td{
+
+                width:50%;
+
+                padding: 10px;
+
+            }
+
+            form{
+
+                width : 200px;
+
+                padding: 10px;
+
+                
+
+            }
+
+            #searchBtn{
+
+                display: inline-block;
+
+                width:40px;
+
+                
+
+                padding: 5px;
+
+                
+
+            }
+
+      
+
+        @media screen and (max-width: 450px) {
+
+            body{
+
+                margin: 0;
+
+                padding: 0;
+
+               
+
+            }
+
+            #page{
+
+                width:auto;
+
+                height: auto;
+
+                }
+
+            
+
+            .menu{
+
+                position: absolute;
+
+                top:350px;
+
+                
+
+                width:100%;
+
+                height: 400px;
+
+                
+
+                overflow: scroll;
+
+                }
+
+            .menu div{
+
+                float: left;
+
+                width : 100%;
+
+                
+
+            }
+
+            .buildings{
+
+                width: 100%;
+
+            }
+
+            .buildings div{
+
+                padding: 0;
+
+                margin: 0;
+
+                width : 90%;
+
+                text-align: center;
+
+                
+
+            }
+
+            .buildings img{
+
+                width : 300px;
+
+            }
+
+            
+
+            #map{
+
+                position: absolute;
+
+                left: 0;
+
+                width:100%;
+
+                height: 350px;
+
+                text-align:center;
+
+               
+
+            }
+
+            #mapImg{
+
+                width:400px;
+
+                height: 350px;
+
+            }
+
+            
+
+            #footer{
+
+                width:400px;
+
+                position: absolute;
+
+                top:700px;
+
+            }
+
+            #footer ul{
+
+                margin: 0;
+
+                padding: 0;
+
+                
+
+            }
+
+            #footer ul li{ 
+
+                list-style-type: none;
+
+               
+
+            }
+
+            .logo{
+
+                width : 20px;
+
+                height: 20px;
+
+            }
+
+            #header{
+
+                width:400px;
+
+            }
+
+           
+
+        }
+
+        
+
+        
+
+        </style>
+
+        <script type="text/javascript">
+
+            
+
+            function getSearch(){
+
+            var searchBuilding = document.getElementById("searchBox").value;
+
+            //닻으로 해당 아이디값 상자로 가기
+
+        }
+
+        </script>
+
+</head>
+
+<body>
+
+<div id="page" data-role="page">
+
+        
+
+    <header id="header" data-role="header"><h1>DCU MAP</h1></header>
+
+    
+
+    <section id="main">
+
+        
+
+    <div class ="menu" data-role="collapsibleset">
+
+        
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h3>A관</h3> 
+
+            <div class="buildings" data-role="collapsibleset" >
+
+           <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A1 본관</h4>
+
+                <img src="img/A1.jpg" alt="img"/> 
+
+                <p>지상4층/지하0층</p>
+
+                <p>건물준공일 : 1987.03.13</p>
+
+                <p>1층</p>
+
+                <p>총무행정팀(102호) 구매팀(112호) 재무팀(106호)  입학상담실(105호)</p>  
+
+                <p>2층</p>
+
+                <p>비서실(201호) 홍보실(201호) 시설관리팀(206호)</p>
+
+                <p>3층</p>
+
+                <p>대외협력단(301호) 교무인사팀(306호) 대회의실(308호) 소회의실(309호)</p>
+
+                <p>4층</p>
+
+                <p>기획처 연구진흥팀(411호) 기획예산팀(411-1호) 통신실(405호) 특성화추진단(411호)</p>   
+
+        </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A2  교양관</h4>
+
+                <img src="img/A2.jpg" alt="img"/> 
+
+                <p>지상4층/지하0층</p>
+
+                <p>건물준공일 : 1991.11.22</p>
+
+                <p>1층</p>
+
+                <p>신문방송사(102호) 우체국(109호) 보건진료소(110호) 인성교육원,사랑나눔봉사단(112호) 로비 파우더룸
+
+    매점(118호)영업시간:월~금 08시~22시</p>
+
+                <p>3층</p>
+
+                <p>글쓰기말하기센터사무실(300호) 교양관사무실(313호)_</p>
+
+                <p>4층</p>
+
+                <p>교양교육원사무실(413호)</p>
+
+ 
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A3  종합민원센터</h4>
+
+                <img src="img/A3.jpg" alt="img"/> 
+
+                <p>무인증명발급기(주중09:00~17:00)</p>
+
+                <p>1층</p>
+
+                <p>종합민원실(100-1호) 수업학적팀(101호,102호) 참인재교육인증원(101호)</p>
+
+                <p>2층</p>
+
+                <p>외국어교육원 사무실(201호)</p>
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A4  팔각정</h4>
+
+                <img src="img/A4.jpg" alt="img"/> 
+
+                <p>팔각정 건물준공일 : 1993.12.28</p>
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A5  화장실</h4>
+
+                <img src="img/A5.jpg" alt="img"/> 
+
+                <p>구 야외화장실</p>
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A6  제1학생회관</h4>
+
+                <img src="img/A6.jpg" alt="img"/> 
+
+                <p>지상5층/지하0층</p>
+
+                <p>건물준공일 : 1987.03.13</p>
+
+                <p>구학생회관</p>
+
+                <p>1층</p> 
+
+                <p>CU편의점(101호)월~금 08시~22시 카페(102호) 사진관(102-1호) 복사실(103호) 여행사(104호) 서점(105호) 문구점(106호) 장애학생지원센터(107호)</p>
+
+                <p>2층</p>
+
+                <p>학생지원팀(205호) 대학극장(구,CU소극장)</p> 
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A7  제2학생회관</h4>
+
+                <img src="img/A7.jpg" alt="img"/> 
+
+                <p>지상5층/지하0층</p>
+
+                <p>건물준공일 : 1992.12.30</p>
+
+                <p>구 제1식당</p>
+
+                <p>1층</p>
+
+                <p>제1식당 학기중 08:30~19:00</p>
+
+                <p>2층</p>
+
+                <p>매점</p>
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A8  중앙도서관</h4>
+
+                <img src="img/A8.jpg" alt="img"/> 
+
+                <p>지상5층/지하1층</p>
+
+                <p>건물준공일 : 1987.07.31</p>
+
+                <p>지하1층</p>
+
+                <p>세미나실(101호) 열람실(107호)
+
+    카페(110호)운영시간:월~금 08:30~20:30</p>
+
+                <p>3층</p>
+
+                <p>중앙도서관사무실(301-1호)</p>  
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A9  종합강의동</h4>
+
+                <img src="img/A9.jpg" alt="img"/> 
+
+                <p>지상5층/지하0층</p>
+
+                <p>구 서요한관</p>
+
+                <p>1층</p>
+
+                <p>eyewear사업단(110호) 신라문화사업단(110-1호) 
+
+    카페(학기중 월~금 08:30~18:00)</p>
+
+                <p>2층</p>
+
+                <p>의료과학대학 행정실(209호)</p>
+
+                <p>3층</p>
+
+                <p>세미나실(304호) 언론광고학과 사무실(315호)</p>
+
+                <p>4층</p>
+
+                <p>언어청각,안경광학과 사무실(414호)</p>
+
+                <p>5층</p>
+
+                <p>물리치료학과 사무실(501호)</p>
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A10 사육장</h4>
+
+                <img src="img/A10.jpg" alt="img"/> 
+
+                <p>지상1층/지하0층</p>
+
+                <p>건물준공일 : 1988.03.04</p>
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A11 제2식당</h4>
+
+                <img src="img/A11.jpg" alt="img"/> 
+
+                <p>지상1층/지하0층</p>
+
+                <p>차이나푸드,면류,밥류,돈까스류등의 메뉴로구성</p>
+
+                <p>식당이용시간 : 10:00~19:00</p>
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A12 화장실</h4>
+
+                <img src="img/A12.jpg" alt="img"/> 
+
+                <p>구 공대화장실</p>
+
+            </div>
+
+            <div data-role="collapsible" data-collapsed="true">
+
+                <h4>A13 영선실</h4>
+
+                <img src="img/A13.jpg" alt="img"/> 
+
+                <p>구 목철공실</p>
+
+            </div> 
+
+        </div>
+
+        </div>
+
+        
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h3>B관</h3>
+
+            <div class="buildings" data-role="collapsibleset" >
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                    <h4>B1  취창업관</h4>
+
+                    <img src="img/B1.jpg" alt="img"/> 
+
+                    <p>구 취업.창업센터</p>
+
+                    <p>1층</p>
+
+                    <p>100주년기념관,기업인재융합대학(101호) 취업지원팀(102호) 대구은행(103호) 카페(커피명가)</p>
+
+                    <p>2층</p>
+
+                    <p>ACE사업단(206호)</p>
+
+                    <p>3층</p>
+
+                    <p>교수학습개발센터 사무실(307호) 교육콘텐츠 제작실(306호)</p>
+
+ 
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                    <h4>B2  제르멩관</h4>
+
+                    <img src="img/B2.jpg" alt="img"/> 
+
+                      <p>지상4층 지하0층</p>
+
+                    <p>1층</p>
+
+                    <p>교직원식당(101호)(월~금 11:30~13:30)</p>
+
+                    <p>2층</p>
+
+                    <p>프레스티지룸 (201호)</p>
+
+                    <p>3층</p>
+
+                    <p>문화예술원(301호) 대학원 행정실(306호)</p>
+
+                    <p>4층층</p>
+
+                    <p>학생상담센터(403호)</p>
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                    <h4>B3  성당(교목처)</h4>
+
+                    <img src="img/B3.jpg" alt="img"/> 
+
+                      <p>지상2층 지하0층</p>
+
+                    <p>건물준공일 : 19930.01.16</p>
+
+                    <p>1층</p>
+
+                    <p>성당(100호) 교목처사무실(105호)</p>
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                    <h4>B4  국제관</h4>
+
+                    <img src="img/B4.jpg" alt="img"/> 
+
+                      <p>구 어학교육센터</p>
+
+                    <p>2층</p>
+
+                    <p>예비군연대사무실(203호)</p>
+
+                    <p>3층</p>
+
+                    <p>국제학생센터(302호) 한국어학당(302호) 국제교류팀(302호)</p>
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                    <h4>B5  학생군사교육단</h4>
+
+                    <img src="img/B5.jpg" alt="img"/> 
+
+                      <p>지상3층 지하0층</p>
+
+                    <p>건물준공일:1988.03.04</p>
+
+                    <p>1층</p>
+
+                    <p>학생군사교육관 행정실(101호)</p>
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                    <h4>B6  역사박물관</h4>
+
+                    <img src="img/B6.jpg" alt="img"/> 
+
+                      <p>지상 3층 지하 0층</p>
+
+                    <p>구 박물관</p>
+
+                    <p>1층</p>
+
+                    <p>안내실(102호) 박물관 사무실(106호) 기념품점, 학교사전시실(104화) 도서실(105호)</p>
+
+                    <p>2층</p>
+
+                    <p>고고유물실, 몬시뇰 전석재 기념실, 특별전시실, 시청각실(203호)</p>
+
+                    <p>3층</p>
+
+                    <p>고려/조선실</p>
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                    <h4>B7  강당</h4>
+
+                    <img src="img/B7.jpg" alt="img"/> 
+
+                      <p>지상 1층 지하 0층</p>
+
+                    <p>건물준공일 : 1988.09.06</p>
+
+                    <p>구 전이냐시오관(강당)</p>
+
+                    <p>1층</p>
+
+                    <p>대강당(101호) 중강당(102호) 소강당(103호)</p>
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                    <h4>B8  산학협력관</h4>
+
+                    <img src="img/B8.jpg" alt="img"/> 
+
+                      <p>구 최요한관</p>
+
+                    <p>1층</p>
+
+                    <p>학협력기획팀(102호) 산학재무팀(107호) 착한편의점(101-1호)(영업시간:월~토 08시~22시)</p>
+
+                    <p>2층</p>
+
+                    <p>한국생산연구원유치추진단사무실(203호)</p>
+
+                    <p>3층</p>
+
+                    <p>안광학융합기술사업단(305호) 다문화교육소행정실(312호) 사회과학연구소(313호)</p>
+
+                    <p>5층</p>
+
+                    <p>CU-LINC사업단사무실(501호) 다문화연구소(502호) ACE사업단사무실(504호) 영천시어린이급식관리지원센터(507호)</p>
+
+                </div>
+
+    </div>
+
+        </div>
+
+        
+
+        <div data-role="collapsible" data-collapsed="true" data-inset="false">
+
+            <h3>C관</h3>
+
+            <div class="buildings" data-role="collapsibleset" >
+
+           <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C1  성토마스모어관</h4>
+
+            <img src="img/C1.jpg" alt="img"/> 
+
+              <p>지상 4층 지하 0층</p>
+
+                <p>구 성토마스모어관(법정관)</p>
+
+                <p>2층</p>
+
+                <p>행정학과사무실(201호)</p>
+
+                <p>3층</p>
+
+                <p>국제행정학과사무실(311호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C2  성라이문도관</h4>
+
+            <img src="img/C2.jpg" alt="img"/> 
+
+              <p>구 성라이문도관(법정대별관)</p>
+
+                <p>3층</p>
+
+                <p>중독예방사업단(301호) CU인재학부사무실(304호)</p>
+
+                <p>4층</p>
+
+                <p>다문화연구원 사무실(404호)</p>
+
+             
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C3  체육관</h4>
+
+            <img src="img/C3.jpg" alt="img"/> 
+
+             <p>지상2층 지하0층</p>
+
+                <p>건물준공일 1998:09.06</p>
+
+                <p>1층</p>
+
+                <p>주경기장(100호) 무용실(104호) 트레이닝실(105호) 체조실(113호)</p>
+
+                <p>2층</p>
+
+                <p>체육교육과사무실(201호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C4  무용관</h4>
+
+            <img src="img/C4.jpg" alt="img"/> 
+
+             <p>지상3층 지하0층</p>
+
+                <p>건물준공일 1994.12.23</p>
+
+                <p>구 성비토관(무용관)</p>
+
+                <p>1층</p>
+
+                <p>무용학과사무실(103호)</p>
+
+             
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C5  사제관</h4>
+
+            <img src="img/C5.jpg" alt="img"/> 
+
+             <p>사제관!!!</p>
+
+           
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C6  신학관</h4>
+
+            <img src="img/C6.jpg" alt="img"/> 
+
+             <p>구 신학대학</p>
+
+                <p>1층</p>
+
+                <p>신한대학사무실(109호)</p>
+
+               
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C7  성예로니모관</h4>
+
+            <img src="img/C7.jpg" alt="img"/> 
+
+             <p>지상 4층 지하0층</p>
+
+                <p>건물준공일 1983.11.26</p>
+
+                <p>1층</p>
+
+                <p>글로벌비지니스대학행정실(107호) 중남미사업단(109호) 한국언어사업단(109호) 카페아는언니 (101호)(월~금:08시30분~20시, 토 10시~17시)</p>
+
+                <p>2층</p>
+
+                <p>중어중국학과사무실(225호) 영어영문학전공사무실(325호)</p>
+
+                <p>3층</p>
+
+                <p>러시아전공사무실(319호) 중남미학부사무실(331호) 실무영어전공사무실(332호)</p>
+
+                <p>4층</p>
+
+                <p>일어일문전공사무실(429호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C8  창고</h4>
+
+            <img src="img/C8.jpg" alt="img"/> 
+
+              <p>구 제1보일러실</p>
+
+           
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C9  성요한보스코관</h4>
+
+            <img src="img/C9.jpg" alt="img"/> 
+
+              <p>지상 4층 지하 1층</p>
+
+                <p>구 성요한보스코관(사범관)</p>
+
+                <p>1층</p>
+
+                <p>유아교육과사무실(111호) 국어교육과사무실(117호)</p>
+
+                <p>2층</p>
+
+                <p>교육대학원,사범대학행정실(207호) 지리교육과사무실(214호)</p>
+
+                <p>3층</p>
+
+                <p>수학교육과사무실(311호)</p>
+
+                <p>4층</p>
+
+                <p>영어교육과사무실(415호)</p> 
+
+</div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C10 제3학생회관</h4>
+
+            <img src="img/C10.jpg" alt="img"/> 
+
+             <p>지상 2층 지하 0층</p>
+
+                <p>2층: 안광학융합기술사업단</p>
+
+                <p>1층</p>
+
+                <p>구 제3식당/아람관
+
+덮밥류, 불고기류, 라면류, 양식류, 비빔밥류, 찌개류의 메뉴들로 구성</p>
+
+                <p>식당운영시간</p>
+
+                <p>학기중 : 10:00 ~ 19:00(월~금)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C11 장원관</h4>
+
+            <img src="img/C11.jpg" alt="img"/> 
+
+             <p>구 미르관</p>
+
+                <p>1층</p>
+
+                <p>고시원사무실,원장실(103호)</p>
+
+           
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C12 성야고보관</h4>
+
+            <img src="img/C12.jpg" alt="img"/> 
+
+              <p>지상 5층 지하 0층</p>
+
+                <p>건물준공일 1985.07.15</p>
+
+                <p>구 성야고보관(사회과학관)</p>
+
+                <p>2층</p>
+
+                <p>사회과학대학행정실(203-1호)
+
+                <p>3층</p>
+
+                <p>사회복지학과(306호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>C13 성마태오관</h4>
+
+            <img src="img/C13.jpg" alt="img"/> 
+
+              <p>지상 4층 지하 0층</p>
+
+                <p>건물준공일 1985.07.15</p>
+
+                <p>1층</p>
+
+                <p>글로벌비지니스대학행정실(104-1호)</p>
+
+                <p>4층</p>
+
+                <p>무역학전공사무실(412호) 경제금융부동산전공사무실(414호)</p>
+
+        </div> 
+
+            
+
+        </div>
+
+        </div>
+
+        
+
+        <div data-role="collapsible" data-collapsed="true" data-inset="false">
+
+            <h3>D관</h3>
+
+            <div class="buildings" data-role="collapsibleset" >
+
+           <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D1  창업보육센터</h4>
+
+            <img src="img/D1.jpg" alt="img"/> 
+
+             <p>지상 5층 지하 1층</p>
+
+                <p>1층</p>
+
+                <p>주)디저트키친(101호) 리더환경(102호) 허브약방문(103호) (주)지-세라믹(105호)</p>
+
+                <p>2층</p>
+
+                <p>거목식품(200호) (주)래현(200호) (주)대한바이오위드(201호) 허브F&C(206호)</p>
+
+                <p>3층</p>
+
+                <p>세림산업(301호) (주)써모일렉트릭(308호)</p>
+
+                <p>4층</p>
+
+                <p>(주)비에스케이바이오(401호) 미드드림(402-B호) 정현조경디자인(403호) 레드텍(405호) 
+
+글로넷비즈(408-A호) 철유전조형디자인(408-A호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D2  공학관</h4>
+
+            <img src="img/D2.jpg" alt="img"/> 
+
+            <p>지상 5층 지하 0층</p>
+
+                <p>2층</p>
+
+                <p>건축학과사무실(209호)</p>
+
+                <p>3층</p>
+
+                <p>전자전기공학과사무실(308호)</p>
+
+                <p>4층</p>
+
+                <p>ACEp사업단(409호) 기계자동차공학부사무실(436,437호)</p>
+
+                <p>5층</p>
+
+                <p>IT공학부사무실(516호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D3  해양바이오산업연구센터</h4>
+
+            <img src="img/D3.jpg" alt="img"/> 
+
+             <p>2층</p>
+
+                <p>해양바이오산업연구센터사무실(208호)</p>
+
+       
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D4  중아기기센터</h4>
+
+            <img src="img/D4.jpg" alt="img"/> 
+
+             <p>지상 1층 지하 0층</p>
+
+                <p>건물준공일 : 1993.12.22</p>
+
+                <p>2층</p>
+
+                <p>중앙기기센터행정기획실(201호)</p>
+
+       
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D5  성도미니코관</h4>
+
+            <img src="img/D5.jpg" alt="img"/> 
+
+             <p>지상 4층 지하 1층</p>
+
+                <p>구 성도미니코관(자연관)</p>
+
+                <p>1층</p>
+
+                <p>대경의료사업단(104-1호) 환경과학과사무실(115호)</p>
+
+                <p>2층</p>
+
+                <p>산업보건학과사무실(224호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D6  성이시도르관</h4>
+
+            <img src="img/D6.jpg" alt="img"/> 
+
+              <p>지상 5층 지하 0층</p>
+
+                <p>건물준공일 : 1993.12.22</p>
+
+                <p>5층층</p>
+
+                <p>의생명과학과사무실(555호)</p>
+
+           
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D7  약학관</h4>
+
+            <img src="img/D7.jpg" alt="img"/> 
+
+              <p>지상 4층 지하 0층</p>
+
+                <p>구 성다미아노관(약학관)</p>
+
+                <p>1층</p>
+
+                <p>약학대학행정실(108호) 약대박물관(109호)</p>
+
+                
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D8  정보통신관</h4>
+
+            <img src="img/D8.jpg" alt="img"/> 
+
+              <p>지상 3층 지하 0층</p>
+
+                <p>1층</p>
+
+                <p>IT 지원센터(101호) 정보통신실(102호)</p>
+
+                <p>2층</p>
+
+                <p>정보개발실(203,204호)</p>
+
+                <p>3층</p>
+
+                <p>인터넷방송국(CUITV)(401호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D9  성토마스관</h4>
+
+            <img src="img/D9.jpg" alt="img"/> 
+
+              <p>지상 4층 지하 0층</p>
+
+                <p>구 성토마스관(과학관)</p>
+
+                <p>1층</p>
+
+                <p>외식식품산업학전공사무실(1OA-1) 생명식품학부사무실(1OA-2)</p>
+
+                <p>2층</p>
+
+                <p>바이오융합대학학장실,행정실(202호) 원예학전공사무실(2OA)</p>
+
+                <p>4층</p>
+
+                <p>생명화학과사무실(402호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D10 제2약학관</h4>
+
+            <img src="img/D10.jpg" alt="img"/> 
+
+              <p>St.Cosmas Hall</p>
+
+            
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D11 성마르타관</h4>
+
+            <img src="img/D11.jpg" alt="img"/> 
+
+              <p>지상 4층 지하 0층</p>
+
+                <p>구 성마르타관(생활과학관)</p>
+
+                <p>1층</p>
+
+                <p>아동학과사무실(117호)</p>
+
+                <p>2층</p>
+
+                <p>가족소비자학과사무실(212호) 경산시어린이급식관리지원센터(217-3호)</p>
+
+                <p>4층</p>
+
+                <p>패션디자인과(413호) RIS사업단사무실(419호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D12 미대실습동</h4>
+
+            <img src="img/D12.jpg" alt="img"/> 
+
+              <p>구 미대실습동1</p>
+
+                
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D13 창고</h4>
+
+            <img src="img/D13.jpg" alt="img"/> 
+
+              <p>구 미대실습동2</p>
+
+                
+
+        </div> 
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D14 소성실</h4>
+
+            <img src="img/D14.jpg" alt="img"/> 
+
+             <p>(KILN)</p>
+
+                
+
+        </div> 
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D15 성카타리나관</h4>
+
+            <img src="img/D15.jpg" alt="img"/> 
+
+             <p>지상 4층 지하 0층</p>
+
+                <p>구 성카타라니관(미술관)</p>
+
+                <p>1층</p>
+
+                <p>디자인대행정실(108호) 금속주얼리,산업디자인학과사무실(111호)</p>
+
+                <p>2층</p>
+
+                <p>디자인대학학장실/행정실(208호)</p>
+
+                <p>3층</p>
+
+                <p>시각디자인과사무실(309호)</p>
+
+        </div> 
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D16 아미레갤러리</h4>
+
+            <img src="img/D16.jpg" alt="img"/> 
+
+              <p>지상 2층 지하 0층</p>
+
+                <p>구 제4식당</p>
+
+                <p>로즈테리아</p>
+
+                <p>레스트랑:양식당으로 피자,라이스,파스타,샐러드,사이드메뉴 등 총 20여가지 메뉴를 제공
+
+-카페</p>
+
+                <p>식당운영시간</p>
+
+                <p>학기중 : 월~목 : 10:00 ~ 18:30 (월~금)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D17 성체칠리아관</h4>
+
+            <img src="img/D17.jpg" alt="img"/> 
+
+             <p>지상 4층 지하 0층</p>
+
+                <p>구 성체칠리아관(음악관)</p>
+
+                <p>1층</p>
+
+                <p>관현악과사무실(108호)</p>
+
+                <p>2층</p>
+
+                <p>작곡·실용음악과사무실(208호) 음악대학 행정실(221호)</p>
+
+                <p>3층</p>
+
+                <p>피아노과사무실(309호)</p>
+
+                <p>4층</p>
+
+                <p>성악과사무실(409호)</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D18 성안나관</h4>
+
+            <img src="img/D18.jpg" alt="img"/> 
+
+             <p>구 성안나관(조소관)</p>
+
+                <p>1층</p>
+
+                <p>환경조각전공사무실/106호</p>
+
+                <p>2층</p>
+
+                <p>CCL카페(월~수 10:00~16:30, 목 10:00~15:00)</p>
+
+                <p>3층</p>
+
+                <p>호텔경영학과사무실/303호</p>
+
+        </div>
+
+        <div data-role="collapsible" data-collapsed="true">
+
+            <h4>D19 용해로실</h4>
+
+            <img src="img/D19.jpg" alt="img"/> 
+
+        </div>
+
+        
+
+            
+
+        </div>
+
+        </div>
+
+        
+
+        <div data-role="collapsible" data-collapsed="true" data-inset="false">
+
+            <h3>E관</h3>
+
+            <div class="buildings" data-role="collapsibleset" >
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E1  성바오로문화관</h4>
+
+                <img src="img/E1.jpg" alt="img"/> 
+
+                  <p>구 성바오로관(문화관)</p>
+
+                <p>1층</p>
+
+                <p>롯데리아(영업시간:월~일 08시~22시)</p>
+
+                <p>2층</p>
+
+                <p>헬스장</p>
+
+                <p>3층</p>
+
+                <p>강당/301호</p>
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E2  화장실</h4>
+
+                <img src="img/E2.jpg" alt="img"/> 
+
+                  <p>구 야외화장실</p>
+
+               
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E3  아마레관</h4>
+
+                <img src="img/E3.jpg" alt="img"/> 
+
+                  <p>1층</p>
+
+                <p>기숙사사무실(113호)</p>
+
+           
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E4  기숙사서비스센터</h4>
+
+                <img src="img/E4.jpg" alt="img"/> 
+
+                  <p>1층</p>
+
+                <p>학생식당(102호)</p>
+
+                <p>2층</p>
+
+                <p>기숙사사무실(202호)</p>
+
+               
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E5  예지관</h4>
+
+                <img src="img/E5.jpg" alt="img"/> 
+
+                  <p>지상 5층 지하 0층</p>
+
+                <p>건물준공일 : 1995.02.15</p>
+
+               
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E6  세르비레관</h4>
+
+                <img src="img/E6.jpg" alt="img"/> 
+
+                
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E7  효성관</h4>
+
+                <img src="img/E7.jpg" alt="img"/> 
+
+              
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E8  성감대건관</h4>
+
+                <img src="img/E8.jpg" alt="img"/> 
+
+             
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E9  다솜관</h4>
+
+                <img src="img/E9.jpg" alt="img"/> 
+
+                <p>1층</p>
+
+                <p>경비실(117호)</p>
+
+               
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E10 참인재관</h4>
+
+                <img src="img/E10.jpg" alt="img"/> 
+
+                  <p>1층</p>
+
+                <p>기숙사사무실(101호) 카페(리에또), 기숙사매점(영업시간:월~일 08시~23시)</p>
+
+              
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E11 성이윤일관</h4>
+
+                <img src="img/E11.jpg" alt="img"/> 
+
+                 <p>2층</p>
+
+                <p>입학사정관팀(201호) 입학관리팀(203호) 입학처장실(204)</p>
+
+               
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E12 대가빌라1동</h4>
+
+                <img src="img/E12.jpg" alt="img"/> 
+
+                 <p>구 성크리스토퍼관</p>
+
+               
+
+                </div>
+
+                <div data-role="collapsible" data-collapsed="true">
+
+                <h4>E13 대가빌라2동</h4>
+
+                <img src="img/E13.jpg" alt="img"/> 
+
+                  <p>구 클라리온관</p>
+
+              
+
+                </div> 
+
+            </div>
+
+        </div>
+
+        
+
+        
+
+    </div>        
+
+    <div id="map" data-role="main">
+
+        <img id="mapImg" src="img/map.jpg"/>
+
+    </div>
+
+    </section>
+
+    <footer id="footer">
+
+        <ul>
+
+            <li>
+
+                <img src="img/logo.png" alt="대구가톨릭대학교" />
+
+            </li>
+
+            <li>
+
+                <p> 1조  강주연 권오근</p>
+
+            </li>
+
+            <li> 
+
+                <a href="http://www.facebook.com/sharer/sharer.php?u=http://203.250.33.33/dcumap/index.html">
+
+                <img class="logo" src="img/facebook.png" alt="페이스북" target="_blank">
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </footer>
+
+        
+
+</div>
+
+</body>
+
+</html>
